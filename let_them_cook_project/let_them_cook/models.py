@@ -20,3 +20,9 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Review by {self.user.username} for {self.recipe.title}"
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #favourites? recipes
+    def __str__(self):
+        return self.user.username
